@@ -1,0 +1,16 @@
+<h2>Task List</h2>
+<a href="{% url 'add_task' %}">Add Task</a>
+<a href="{% url 'filter_tasks_by_priority' 'High' %}">Filter High Priority</a>
+<a href="{% url 'filter_tasks_by_priority' 'Medium' %}">Filter Medium Priority</a>
+<a href="{% url 'filter_tasks_by_priority' 'Low' %}">Filter Low Priority</a>
+<a href="{% url 'view_all_tasks' %}">View All Tasks</a>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.title }} ({{ task.priority }} - {{ task.status }})({{ task.description }})
+            <a href="{% url 'edit_task' task.id %}">Edit</a>
+            <a href="{% url 'delete_task' task.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
