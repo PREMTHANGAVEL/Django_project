@@ -19,7 +19,7 @@ class Task(models.Model):
     description = models.TextField()
     priority = models.CharField(max_length=6, choices=PRIORITY_CHOICES)
     status = models.CharField(max_length=12, choices=STATUS_CHOICES)
-    #created_at = models.DateTimeField(default=datetime.datetime.now)
+   
     
 
     def __str__(self):

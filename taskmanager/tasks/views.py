@@ -14,13 +14,15 @@ def add_task(request):
                 description=form.cleaned_data['description'],
                 priority=form.cleaned_data['priority'],
                 status=form.cleaned_data['status'],
-                #dataandtime=form.cleaned_data['dataandtime']
+                
                 
             )
             return redirect('view_all_tasks')
     else:
         form = TaskForm()
     return render(request, 'tasks/task_form.html', {'form': form})
+
+
 
 def edit_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
